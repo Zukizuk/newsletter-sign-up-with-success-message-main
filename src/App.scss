@@ -1,0 +1,248 @@
+@import "index.scss";
+
+$Dark-Slate-Grey: hsl(234, 29%, 20%);
+$Charcoal-Grey: hsl(235, 18%, 26%);
+$Grey: hsl(231, 7%, 60%);
+$White: hsl(0, 0%, 100%);
+
+$Tomato: hsl(4, 100%, 67%);
+$Tomato-mix: hsl(0, 99%, 67%);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .error {
+    color: $Tomato;
+  }
+
+  .Sign__Up {
+    width: 55%;
+    height: 70vh;
+    background: white;
+    border-radius: 1.7rem;
+    padding: 0.8rem;
+    display: grid;
+    grid-template-columns: 55% 45%;
+
+    .mobile__image {
+      display: none;
+    }
+    .text__content {
+      display: flex;
+      flex-direction: column;
+      padding: 4rem 1.5rem 0rem 2rem;
+      gap: 1rem;
+
+      h1 {
+        font-size: 2.8rem;
+        color: $Dark-Slate-Grey;
+      }
+
+      .updates {
+        > p {
+          font-size: 0.96rem;
+        }
+        div {
+          display: flex;
+          align-items: center;
+          gap: 0.35rem;
+          margin-bottom: 0.5rem;
+
+          &:first-of-type {
+            margin-top: 1rem;
+          }
+        }
+      }
+      form {
+        display: grid;
+        gap: 0.5rem;
+
+        label {
+          color: $Dark-Slate-Grey;
+          font-weight: bold;
+          font-size: 11px;
+          display: flex;
+          justify-content: space-between;
+        }
+        input {
+          border: 1px solid $Grey;
+          padding: 1rem;
+          border-radius: 0.5rem;
+          color: $Dark-Slate-Grey;
+
+          &.error {
+            border: 1px solid $Tomato;
+            background: rgba($color: $Tomato, $alpha: 0.2);
+            color: $Tomato;
+          }
+
+          &::placeholder {
+            color: $Grey;
+          }
+
+          &:focus {
+            outline: none;
+            border: 1px solid $Dark-Slate-Grey;
+          }
+          &.error:focus {
+            outline: none;
+            border: 1px solid $Tomato;
+          }
+        }
+        button {
+          padding: 1rem;
+          border-radius: 0.5rem;
+          outline: none;
+          border: none;
+          background: $Dark-Slate-Grey;
+          color: $White;
+          font-weight: 700;
+          margin-top: 0.5rem;
+          cursor: pointer;
+
+          &:hover {
+            background: linear-gradient(to right, $Tomato-mix, $Tomato 20%);
+          }
+        }
+      }
+    }
+    .image_content {
+      background: url(assets/images/illustration-sign-up-desktop.svg) no-repeat;
+      background-size: cover;
+      background-position: 100%;
+      height: 100%;
+      border-radius: 1rem;
+    }
+    @media (max-width: 37.5rem) {
+      width: 100%;
+      height: 100svh;
+      max-height: max-content;
+      display: flex;
+      flex-direction: column-reverse;
+      border-radius: 0;
+      padding: 0;
+
+      .image_content {
+        display: none;
+      }
+      .mobile__image {
+        display: block;
+        height: 40%;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-bottom-left-radius: 1rem;
+          border-bottom-right-radius: 1rem;
+        }
+      }
+      .text__content {
+        height: 60vh;
+        padding: 1.3rem 1.3rem 0;
+        gap: 0.7rem;
+        line-height: 1;
+
+        h1 {
+          font-size: 2rem;
+        }
+        .updates {
+          > p {
+            font-size: 1rem;
+          }
+
+          div {
+            &:first-of-type {
+              margin-top: 0.7rem;
+            }
+            &:last-of-type {
+              margin-bottom: 0rem;
+            }
+          }
+        }
+        form {
+          margin-top: -0.3rem;
+          gap: 0.5rem;
+
+          input,
+          button {
+            padding: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+  .Success {
+    width: 25%;
+    height: 55vh;
+    background: $White;
+    border-radius: 2rem;
+    padding: 3.5rem 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    img {
+      max-width: 2.2rem;
+    }
+
+    .message {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      h1 {
+        color: $Dark-Slate-Grey;
+        font-size: 2.4rem;
+        line-height: 0.9;
+      }
+      p {
+        color: $Charcoal-Grey;
+
+        span {
+          color: $Dark-Slate-Grey;
+          font-weight: 700;
+        }
+      }
+    }
+    .btn {
+      padding: 0.8rem;
+      border-radius: 0.5rem;
+      outline: none;
+      border: none;
+      background: $Dark-Slate-Grey;
+      color: $White;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+
+      &:hover {
+        background: linear-gradient(to right, $Tomato-mix, $Tomato 20%);
+      }
+    }
+
+    @media (max-width: 37.5rem) {
+      width: 100%;
+      height: 100vh;
+      padding: 8rem 1.3rem 1.8rem;
+      border-radius: 0;
+
+      img {
+        margin-bottom: 1rem;
+      }
+      .message {
+        flex: 1;
+      }
+    }
+  }
+}
